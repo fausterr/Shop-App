@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>	
+	<h3>
+	<a th:href="@{/register}">Register for user</a>
+	<br>
+	<a th:href="@{/loginform}">Login</a>
+	<br>
+	<a th:href="@{/showAllProducts}">Lista wszystkich produktów</a>
+	<br>
+	<a th:href="@{/profile}">Moj profil</a>
+	<br>
+	<a th:href="@{/shopping_cart}">Przejscie do koszyka</a>
+	<br>	
+	</h3>
+	<br>
+	<form action="logmeout" th:action="@{/logmeout}" method="post" >
+        <input type="submit" value="Log me out" />
+    </form>
+</body>
+</html>

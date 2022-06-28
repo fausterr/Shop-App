@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Ad product</title>
+</head>
+<body>
+	<form method="post" th:action="@{/admin/saveDiscountCode}" th:object="${discountCode}">
+		<p>Wprowadz kod zniżkowy</p>
+		<input th:field="*{value}" placeholder="Value"/>
+		<p>Wprowadz wartość zniżki</p>
+		<input th:field="*{discount}" type="number"/>
+		<p><input type="submit" value="save"/></p>
+	</form>
+</body>
+</html>

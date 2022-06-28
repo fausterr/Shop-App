@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Produkty</title>
+</head>
+<body>
+<h1>Lista wszystkich produktów</h1>
+<br>
+<h2>Sortuj według:</h2>
+<p>
+	<a th:href="@{/showAllProducts/sorted/name}">Nazwy produktu</a>
+	<a th:href="@{/showAllProducts/sorted/price}">Ceny</a>
+	<a th:href="@{/showAllProducts/sorted/category}">Kategorii</a>
+</p>
+<br>
+	<table width="50%" border="1"> 
+		<tr>
+			<th>NAZWA</th>
+			<th>KATEGORIA</th>
+			<th>ILOŚĆ</th>
+			<th>CENA</th>
+			<th>ZNIŻKA</th>
+			<th>OPIS</th>
+		</tr>
+		<tr th:each="product: ${sortedProducts}" th:object="${product}">
+			<td th:text="*{name}"></td>
+			<td th:text="*{category}"></td>
+			<td th:text="*{quantity}"></td>
+			<td th:text="*{price}"></td>
+			<td th:text="*{discount}"></td>
+			<td th:text="*{description}"></td>
+		</tr>
+	</table>
+	<br>
+	<br>
+	<h3>Dodaj produkt do koszyka</h3>
+	<p>
+		Aby dodać produkt wpisz jego nazwę oraz ilość
+	</p>
+	<form method="post" th:action="product_sucess">
+		<p>Nazwa produktu</p>
+		<input type="text" th:name="name"/><br>
+		<p>Ilość</p>
+		<input type="number" th:name="size"/><br>
+		<p><input type="submit" value="Dodaj"/></p>
+	</form>
+	<br>
+	<br>
+	<h2>Przejdz do koszyka</h2>
+	<a th:href="@{/shopping_cart}">click</a>
+	<br>
+	<br>
+	<a th:href="@{/}">Przejdz do strony glownej</a>
+</body>
+</html>

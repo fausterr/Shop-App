@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<br>
+	<form th:action="@{/admin/orderDate}" method="post" th:object="${time}">
+		<p>rok: <input type="number" th:field="*{year}" /></p>
+		<p>miesiac: <input type="number" th:field="*{month}" /></p>
+		<p>dzien: <input type="number" th:field="*{day}" /></p>
+		<input type="submit" value="save"/>
+	</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>Informacje o Tobie:</h2>
+	<br>
+	<h3>Login</h3>
+	<p th:text="${user.login}">Login</p>
+	<h3>Imię</h3>
+	<p th:text="${user.firstName}"></p>
+	<h3>Nazwisko</h3>
+	<p th:text="${user.lastName}"></p>
+	<h3>Email</h3>
+	<p th:text="${user.email}"></p>
+	</br>
+	<p th:if="${isAdmin}">
+		<a href="/admin/profile">Przejdz do panelu administratora</a>
+	</p>
+	<br>
+	<h3><a href="/profile/password">Zmien swoje haslo</a> </h3>
+	<br>
+	<h3><a th:href="@{/shopping_cart}">Przejscie do koszyka</a></h3>
+	<br>
+	<h3><a href="/profile/orders">Przejdz do swoich zamowien</a></h3>
+	<br>
+	<br>
+	<a th:href="@{/}">Przejdz do strony glownej</a>
+</body>
+</html>

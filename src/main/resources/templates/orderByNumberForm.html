@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<br>
+	<form th:action="@{/admin/orderNumber}" method="post" th:object="${order}">
+		<p>Nr zamówienia: <input type="text" th:field="*{orderNumber}" /></p>
+		<input type="submit" value="znajdz"/>
+	</form>
+</body>
+</html>

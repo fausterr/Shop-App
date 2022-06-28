@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<br>
+	<form method="post" th:action="@{/orderDetails}">
+		<p>Tu mozesz wpisac swoj kupon promocyjny</p>
+		<p th:errors="${discountCode.value}">Error</p>
+		<p><input type="text" th:field="${discountCode.value}"/></p>	
+		<br>
+		<h3>Podaj swoje dane</h3>
+		<p>Imie</p>
+		<p th:errors="${clientDetails.firstName}">FirstName errors</p>
+		<p><input type="text" th:field="${clientDetails.firstName}"/> </p>
+		<p>Nazwisko</p>
+		<p th:errors="${clientDetails.lastName}">FirstName errors</p>
+		<p><input type="text" th:field="${clientDetails.lastName}" /></p>
+		<p>Miasto</p>
+		<p th:errors="${clientDetails.city}">FirstName errors</p>
+		<p><input type="text" th:field="${clientDetails.city}"/></p>
+		<p>Ulica i numer mieszkania</p>
+		<p th:errors="${clientDetails.address}">FirstName errors</p>
+		<p><input type="text" th:field="${clientDetails.address}"/></p>
+		<p>Email</p>
+		<p th:errors="${clientDetails.email}">FirstName errors</p>
+		<p><input type="text" th:field="${clientDetails.email}"/></p>
+		<p>Numer telefonu</p>
+		<p th:errors="${clientDetails.phoneNumber}">FirstName errors</p>
+		<p><input type="number" th:field="${clientDetails.phoneNumber}"/></p>
+		<p>Wybierz formę dostawy</p>
+		<select name="typeDelivery" th:field="${delivery.typeDelivery}">
+			<option th:each="typeDelivery: ${T(pl.javastart.model.TypeDelivery).values()}" 
+			th:value="${typeDelivery}" th:text="${typeDelivery.description}"></option>
+		</select>
+		<p><input type="submit" value="wyslij"/></p>
+	</form>
+<br>
+</body>
+</html>

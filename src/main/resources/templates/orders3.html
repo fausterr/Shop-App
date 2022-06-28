@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<tr th:each="order: ${orders}">
+		<h2><p th:text="${order.orderNumber}"></p></h2>
+		<tr>
+			<th>NAZWA</th>
+			<th>ILOŚĆ</th>
+			<th>CENA</th>
+		</tr>
+		<tr th:each="product: ${order.products}">
+			<td th:text="${product.name}"></td>
+			<td th:text="${product.quantity}"></td>
+			<td th:text="${product.price}"></td>
+		</tr>
+	</tr>
+		<p>aada<span th:text="${order.clientDetails.firstName}"></span></p>
+		<p>aca<span th:text="${order.clientDetails.lastName}"></span></p>
+		<p>ada<span th:text="${order.clientDetails.city}"></span></p>
+		<p>ccc<span th:text="${order.clientDetails.address}"></span></p>
+		<p><span th:text="${order.clientDetails.email}"></span></p>
+		<p><span th:text="${order.clientDetails.phoneNumber}"></span></p>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Koszyk zakupowy</title>
+</head>
+<body>
+<h1>Twoja lista produktów</h1>
+<br>
+	<table width="50%" border="1"> 
+		<tr>
+			<th>NAZWA</th>
+			<th>KATEGORIA</th>
+			<th>ILOŚĆ</th>
+			<th>CENA</th>
+			<th>ZNIŻKA</th>
+			<th>OPIS</th>
+		</tr>
+		<tr th:each="product: ${products}" th:object="${product}">
+			<td th:text="*{name}">Name</td>
+			<td th:text="*{category}">Name</td>
+			<td th:text="*{quantity}">Quantity</td>
+			<td th:text="*{price}">Price</td>
+			<td th:text="*{discount}">Discount</td>
+			<td th:text="*{description}">Name</td>
+		</tr>
+	</table>
+	<p>Całkowita cena: <span th:text="${price}"></span></p>
+	<br>
+	<br>
+	<td th:switch="${isCartEmpty}">
+ 	   <span th:case="true"><h3>Aby przejść do zamówienia dodaj produkt do koszyka</h3></span>
+  	   <span th:case="false"><h3><a th:href="@{/orderDetails}">Przejdz do zamowienia</a></h3></span>   
+	</td>
+	<br>
+	<a th:href="@{/showAllProducts}">Lista wszystkich produktów</a>
+	<br>
+	<br>
+	<br>
+	<a th:href="@{/}">Przejdz do strony glownej</a>
+</body>
+</html>
